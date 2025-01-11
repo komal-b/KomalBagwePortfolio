@@ -7,11 +7,11 @@ import download from '../assets/download.png';
 
 const Hero = () => {
   return (
-    <section id="about" className='relative w-full  bg-gradient-to-b from-gray-900 to-black flex min-h-screen mx-auto '>
-      <div className={`${styles.paddingX} flex flex-col-reverse lg:flex-row justify-between items-center w-full max-w-6xl mx-auto gap-10`}>
-        <div className="flex flex-col gap-5 max-w-lg text-justify lg:text-left">
-          <h1 className={`${styles.heroHeadText}`}>Hi, I'm Komal</h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+    <section id="about" className='mt-24 relative w-full flex min-h-screen mx-auto '>
+      <div className={`${styles.paddingX} mt-8 flex flex-col-reverse lg:flex-row justify-between items-center w-full max-w-6xl mx-auto gap-10`}>
+        <div className="flex flex-col mt-12 gap-5 max-w-lg text-justify lg:text-left">
+          <p  className={`${styles.heroHeadText} `}>Hi, I'm Komal</p>
+          <p className={`${styles.heroSubText} text-white-100`}>
             I am currently pursuing my Master’s in Computer Science at New York University, with an expected graduation in May 2026. I have expertise in Selenium, Cucumber, GlobalScape, Splunk, Unix, Java, Spring Boot, Hibernate, Jenkins, JavaScript, React, MySQL, Python, and Oracle SQL Developer. I bring experience in developing innovative solutions for the Healthcare and Finance domains.
           </p>
           
@@ -57,7 +57,7 @@ const Hero = () => {
                 alt="Download" 
                 className="w-7 h-7"
               />
-              <span>Download CV</span>
+              <span>Download </span>
             </a>
           </div>
         </div>

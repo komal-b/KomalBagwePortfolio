@@ -91,11 +91,12 @@ const Projects = () => {
           </>
 
       </div>
-  {selectedProject && (
-  <div className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-    < div className="bg-gray-800  bg-gradient-to-t from-black to-transparent shadow-2xl shadow-cyan-500/50  p-8 rounded-lg w-96">
+ {selectedProject && (
+  <div className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-gray-800 bg-gradient-to-t from-black to-transparent shadow-2xl shadow-cyan-500/50 p-6 sm:p-8 rounded-lg w-full max-w-md  max-h-[calc(100vh-2rem)] overflow-auto">
       <h2 className="text-3xl font-bold mb-4 text-center text-white">{selectedProject.title}</h2>
       <p className="text-center text-l mb-4 text-white">{selectedProject.company}</p>
+      
       <motion.p
         className="max-w-4xl mb-6 text-white text-lg"
         initial="hidden"
@@ -140,6 +141,7 @@ const Projects = () => {
     </div>
   </div>
 )}
+
 
 
     </section>

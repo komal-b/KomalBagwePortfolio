@@ -31,7 +31,7 @@ const Navbar = () => {
         ${scrolled ? 'bg-black shadow-lg shadow-cyan-800' : 'bg-black'}
       `}
     >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+      <div className="w-full flex justify-between items-center max-w-6xl mx-auto">
         <Link
           to="/"
           className="flex items-center gap-2"
