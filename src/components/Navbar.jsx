@@ -28,7 +28,7 @@ const Navbar = () => {
     <nav
       className={`
         ${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 
-        ${scrolled ? 'bg-black shadow-lg shadow-gray-800' : 'bg-black'}
+        ${scrolled ? 'bg-black shadow-lg shadow-cyan-800' : 'bg-black'}
       `}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -40,8 +40,8 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="w-20 h-100 object-contain" />
-          <p className="text-white text-[30px] font-bold cursor-pointer">Komal Bagwe</p>
+          <img src={logo} alt="logo" className="w-20 h-90 object-contain" />
+          <p className="text-white text-[20px] font-bold cursor-pointer">Komal Bagwe</p>
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((link) => (
@@ -58,7 +58,7 @@ const Navbar = () => {
           <img
             src={toggle ? close : menu}
             alt="menu"
-            className="w-[28px] h-[28px] object-contain cursor-pointer"
+            className="w-[30px] h-[30px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
           <div
