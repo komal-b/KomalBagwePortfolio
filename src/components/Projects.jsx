@@ -56,34 +56,34 @@ const Projects = () => {
                   variants={containerVariants}
                 >
                   {projectCategory.items.map((project) => (
-                    <motion.div
-                      key={project.title}
-                      className="relative rounded-lg shadow-lg overflow-hidden"
-                      variants={itemVariants}
-                      whileHover={{
-                        scale: 1.05,
-                        boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.3)',
-                      }}
-                      transition={{ duration: 0.3 }}
+                  <motion.div
+                  key={project.title}
+                  className="relative rounded-lg shadow-lg overflow-hidden transform transition-all"
+                  variants={itemVariants}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0px 10px 30px rgba(0, 255, 255, 0.5)',
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-64 object-cover"
+                  />
+                
+                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent p-4 flex flex-col justify-end bg-opacity-90">
+                    <h4 className="text-xl font-semibold text-white mb-2">
+                      {project.title}
+                    </h4>
+                    <a
+                      onClick={() => setSelectedProject(project)}
+                      className="text-cyan-400 hover:underline cursor-pointer"
                     >
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-64 object-cover"
-                      />
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent p-4 flex flex-col justify-end bg-opacity-90">
-                        <h4 className="text-xl font-semibold text-white mb-2">
-                          {project.title}
-                        </h4>
-                        <a
-                          onClick={() => setSelectedProject(project)}
-                          className="text-cyan-400 hover:underline cursor-pointer"
-                        >
-                          View Project →
-                        </a>
-                      </div>
-                    </motion.div>
+                      View Project →
+                    </a>
+                  </div>
+                </motion.div>
                   ))}
                 </motion.div>
               </motion.div>
@@ -93,7 +93,7 @@ const Projects = () => {
       </div>
   {selectedProject && (
   <div className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-    <div className="bg-gray-800 to-transparent p-8 rounded-lg w-96">
+    < div className="bg-gray-800  bg-gradient-to-t from-black to-transparent shadow-2xl shadow-cyan-500/50  p-8 rounded-lg w-96">
       <h2 className="text-3xl font-bold mb-4 text-center text-white">{selectedProject.title}</h2>
       <p className="text-center text-l mb-4 text-white">{selectedProject.company}</p>
       <motion.p
