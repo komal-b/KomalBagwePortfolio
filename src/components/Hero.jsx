@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import profile from '../assets/profile.jpeg';
-import github from '../assets/github.png'; // Replace with your actual GitHub logo path
-import linkedin from '../assets/linkedin.png'; // Replace with your actual LinkedIn logo path
-import download from '../assets/download.png'; // Replace with your download icon path
+import github from '../assets/github.png'; 
+import linkedin from '../assets/linkedin.png'; 
+import download from '../assets/download.png'; 
 
 const Hero = () => {
   return (
@@ -15,11 +15,11 @@ const Hero = () => {
             I am currently pursuing my Master’s in Computer Science at New York University, with an expected graduation in May 2026. I have expertise in Selenium, Cucumber, GlobalScape, Splunk, Unix, Java, Spring Boot, Hibernate, Jenkins, JavaScript, React, MySQL, Python, and Oracle SQL Developer. I bring experience in developing innovative solutions for the Healthcare and Finance domains.
           </p>
           
-          {/* Links Section */}
+        
           <div className="flex gap-6 mt-4">
-            {/* GitHub Link */}
+          
             <a 
-              href="https://github.com/komal-b" // Replace with your GitHub link
+              href="https://github.com/komal-b" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:scale-150 transition-transform duration-300"
@@ -45,9 +45,9 @@ const Hero = () => {
               />
             </a>
 
-            {/* CV Button */}
+     
             <a 
-              href="https://drive.google.com/your-cv-link" // Replace with your Google Drive CV link
+              href="https://drive.google.com/file/d/1o8oKILstFNMvL4QcpzhfD9BhZLe5BlGx/view?usp=drive_link" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-white text-gray-950 rounded-md shadow-md hover:scale-110 transition-all duration-300"

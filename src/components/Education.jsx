@@ -28,7 +28,6 @@ const Education = () => {
           Education
         </motion.h2>
 
-        {/* Education Cards */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center items-stretch"
           variants={containerVariants}

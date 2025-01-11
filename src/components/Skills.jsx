@@ -16,16 +16,7 @@ const Skills = () => {
   };
 
   const skills = [
-    { category: "Programming Languages", details: "Python, Java, JavaScript" },
-    { category: "Web Technologies", details: "HTML, CSS, React, TailWind" },
-    { category: "Backend Frameworks", details: "Spring, Hibernate, JMS" },
-    { category: "Machine Learning", details: "PyTorch, NumPy, Keras, TensorFlow" },
-    { category: "Databases", details: "Oracle SQL Developer, MySQL, MongoDB, AWS S3" },
-    { category: "DevOps", details: "Git, AWS, Docker" },
-    { category: "IDEs", details: "Eclipse, IntelliJ IDEA, VisualStudio Code" },
-    { category: "Tools", details: "Postman, Jira, Confluence, Splunk, GlobalScape EFT" },
-    { category: "Testing", details: "Selenium, Cucumber" },
-    { category: "Architecture", details: "Microservices" },
+   
   ];
 
   return (
@@ -40,7 +31,7 @@ const Skills = () => {
           Skills
         </motion.h2>
 
-        {/* Skills Grid */}
+        
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6"
           variants={containerVariants}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from 'emailjs-com'; // Import EmailJS
+import emailjs from 'emailjs-com'; 
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ const Contact = () => {
         'l-pTH52g0Y-9IKmbe'
       );
       console.log(e);
-      console.log(result.text); // Check the response for any errors or success
+      console.log(result.text); 
 
       setResponseMessage('Thank you for your message. We will get back to you soon!');
       setIsSubmitting(false);
@@ -55,7 +55,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="min-h-screen py-10 px-5 text-white flex flex-col justify-center items-center">
-      {/* Let's Connect Section */}
+ 
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: 50 }}
@@ -66,11 +66,11 @@ const Contact = () => {
         
       </motion.div>
 
-      {/* Contact Form Section */}
+     
       <div className="max-w-6xl mx-auto w-full lg:w-1/2">
         <motion.h2 className="text-4xl font-bold mb-10 text-center">Contact</motion.h2>
 
-        {/* Form Section */}
+      
         <motion.form
           onSubmit={handleSubmit}
           className="bg-gray-800 p-8 rounded-lg shadow-lg w-full"
@@ -135,7 +135,7 @@ const Contact = () => {
           </motion.button>
         </motion.form>
 
-        {/* Response Message */}
+       
         {responseMessage && (
           <motion.div
             className="mt-6 text-center text-lg font-medium"
@@ -148,7 +148,7 @@ const Contact = () => {
         )}
       </div>
 
-      {/* Contact Details on the Right */}
+      
       <div className="lg:w-1/2 flex flex-col items-center lg:items-start mt-10 lg:mt-10">
         <motion.div
           className="bg-gray-800 p-8 rounded-lg shadow-lg w-full"
