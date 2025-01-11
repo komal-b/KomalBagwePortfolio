@@ -57,7 +57,7 @@ const Hero = () => {
                 alt="Download" 
                 className="w-7 h-7"
               />
-              <span>Download </span>
+              <span>Download Resume</span>
             </a>
           </div>
         </div>
