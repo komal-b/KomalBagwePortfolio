@@ -132,7 +132,7 @@ import {
       category: 'AI/ML Projects',
       items: [
         {
-          title: 'Finetunes RAG System',
+          title: 'Finetuned RAG System',
           image: rag,
           description:[
             'Executed Retrieval-Augmented Generation (RAG) paradigm for large-scale language understanding tasks.',
