@@ -39,7 +39,7 @@ const Contact = () => {
       console.log(e);
       console.log(result.text); 
 
-      setResponseMessage('Thank you for your message. We will get back to you soon!');
+      setResponseMessage('Thank you for your message. I will get back to you soon!');
       setIsSubmitting(false);
       setFormData({
         name: '',

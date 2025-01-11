@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { skills } from '../constants';
+
 
 const Skills = () => {
   const containerVariants = {
@@ -15,9 +17,7 @@ const Skills = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   };
 
-  const skills = [
-   
-  ];
+  
 
   return (
     <section id="skills" className="min-h-screen py-12 px-6 text-white flex flex-col items-center ">

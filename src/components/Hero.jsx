@@ -31,9 +31,9 @@ const Hero = () => {
               />
             </a>
 
-            {/* LinkedIn Link */}
+           
             <a 
-              href="https://www.linkedin.com/in/komalbagwe/" // Replace with your LinkedIn link
+              href="https://www.linkedin.com/in/komalbagwe/"
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:scale-150 transition-transform duration-300"
