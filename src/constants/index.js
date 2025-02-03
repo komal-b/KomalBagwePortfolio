@@ -139,7 +139,7 @@ import {
             'Combined retrieval-based and generation-based models to enable domain-specific response generation.',
             'Utilized Docker for containerization, improving deployment efficiency.'
           ],
-          techStack: 'Keras, Tensorflow, Pytorch, MongoDB, Docker, ETL',
+          techStack: 'Hugging Face, Pytorch, MongoDB, Docker, ETL',
           github: 'https://github.com/komal-b/RAG_Finetuning',
         }
       ],
