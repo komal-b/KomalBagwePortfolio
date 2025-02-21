@@ -47,7 +47,7 @@ const Hero = () => {
 
      
             <a 
-              href="https://drive.google.com/file/d/1Y86XoBMrKxQJvEySV5zWrvlTDpm2gwC3/view" 
+              href="https://drive.google.com/file/d/1OiUDEzdaQ8OFAdH2TmwKA3PApzJdH0kI/view?usp=sharing" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-white text-gray-950 rounded-md shadow-md hover:scale-110 transition-all duration-300"
