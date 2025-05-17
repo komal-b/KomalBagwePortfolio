@@ -9,6 +9,7 @@ import nyulogo from "./nyulogo.png";
 import rag from "./rag.jpg";
 import pharmacy from "./pharmacy.jpg";
 import ngo from "./ngo.jpg";
+import weather from "./weather.png";
 export {
   rag,
   mulogo,
@@ -19,5 +20,6 @@ export {
   menu,
   close,
   pharmacy,
+  weather,
   ngo
 };

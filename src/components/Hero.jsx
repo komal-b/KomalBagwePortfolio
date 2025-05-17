@@ -12,7 +12,7 @@ const Hero = () => {
         <div className="flex flex-col mt-12 gap-5 max-w-lg text-justify lg:text-left">
           <p  className={`${styles.heroHeadText} `}>Hi, I'm Komal</p>
           <p className={`${styles.heroSubText} text-white-100`}>
-            I am currently pursuing my Master’s in Computer Science at New York University, with an expected graduation in May 2026. I have expertise in Selenium, Cucumber, GlobalScape, Splunk, Unix, Java, Spring Boot, Hibernate, Jenkins, JavaScript, React, MySQL, Python, and Oracle SQL Developer. I bring experience in developing innovative solutions for the Healthcare and Finance domains.
+            I'm Komal Bagwe, a software engineer and Master’s student at NYU with 4+ years of experience at Accenture. I specialize in full-stack development, scalable systems, and team leadership. From building robust Java applications to mentoring junior engineers, I blend technical skill with a people-first mindset. I'm passionate about clean code, collaboration, and continuous growth—driven to create impactful, user-focused software.
           </p>
           
         

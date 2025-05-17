@@ -3,7 +3,8 @@ import {
     mulogo,
     rag,
     pharmacy,
-    ngo
+    ngo,
+    weather
   } from "../assets";
   
   export const navLinks = [
@@ -39,28 +40,27 @@ import {
     {
       logo: nyulogo,
       school: 'New York University',
-      degree: 'Master of Science in Computer Science',
-      year: '[Sept. 2024 - May 2026]'
+      degree: 'Master of Science in Computer Science'
     },
     {
       logo: mulogo,
       school: 'University of Mumbai',
-      degree: 'Bachelor of Engineering in Computer Engineering',
-      year: '[Aug 2016 - May 2019]'
+      degree: 'Bachelor of Engineering in Computer Engineering'
     },
   ];
   
   const skills = [
     { category: "Programming Languages", details: "Python, Java, JavaScript" },
     { category: "Web Technologies", details: "HTML, CSS, React, TailWind" },
-    { category: "Backend Frameworks", details: "Spring, Hibernate, JMS" },
-    { category: "Machine Learning", details: "PyTorch, NumPy, Keras, TensorFlow" },
     { category: "Databases", details: "Oracle SQL Developer, MySQL, MongoDB, AWS S3" },
+    { category: "Machine Learning", details: "PyTorch, NumPy, Keras, TensorFlow, OpenCV" },
+    { category: "Backend Frameworks", details: "Spring, Hibernate, JMS" },
     { category: "DevOps", details: "Git, AWS, Docker" },
     { category: "IDEs", details: "Eclipse, IntelliJ IDEA, VisualStudio Code" },
-    { category: "Tools", details: "Postman, Jira, Confluence, Splunk, GlobalScape EFT" },
     { category: "Testing", details: "Selenium, Cucumber" },
+    { category: "Big Data", details: "Apache Spark, Hadoop" },
     { category: "Architecture", details: "Microservices" },
+    { category: "Tools", details: "Postman, Jira, Confluence, Splunk, GlobalScape EFT" },
   ];
   
   const experiences = [
@@ -69,12 +69,12 @@ import {
       title: 'Senior Software Engineer',
       duration: 'Dec 2021 - Aug 2024',
       responsibilities: [
-        'Optimized ActiveMQ queue performance, reducing load by 60% and increasing message processing efficiency by 40% through producer flow control tuning and memory usage optimization',
-        'Developed a custom scrollable tooltip component in Java Swing, implementing mouse event handling and JScrollPane integration for enhanced user interaction.',
-        'Achieved 100% code coverage in JUnit test suites using PowerMockito for comprehensive mocking, improving software quality and reliability.',
-        'Implemented RESTful web services with Spring Boot to expose AI/ML functionalities, enhancing system integration and accessibility',
-        'Led a cross-functional engineering team of eight members during Team Lead\'s absence, maintaining project momentum and operational continuity.',
-        'Authored technical analysis documents, effectively translating complex concepts into clear, non-technical language for client understanding.'
+        'Boosted system performance by 60% through ActiveMQ queue tuning',
+        'Built custom Java Swing UI components for enhanced user interaction',
+        'Achieved 100% JUnit coverage using PowerMockito for robust testing',
+        'Reduced insurance claim errors by 45% by integrating EPS data with PBM',
+        'Led a team of 8 during Team Lead\'s absence, ensuring delivery continuity',
+        'Developed Spring Boot APIs to expose AI/ML services'
       ],
     },
     {
@@ -82,23 +82,14 @@ import {
       title: 'Software Engineer',
       duration: 'Jun 2021 - Nov 2021',
       responsibilities: [
-        'Engineered "Ping Down" functionalities for central-pharmacy application synchronization, achieving 100% data consistency improvement.',
-        'Participated in Agile methodology, contributing to sprint planning, design discussions, and code reviews.',
-        'Formulated a comprehensive training program on Spring Boot application workflow for junior team members, enhancing their Java development proficiency.',
-        'Identified and resolved critical bugs in a pharmaceutical application through root cause analysis, implementing targeted solutions to improve system stability and accuracy.',
-        'Developed automated test scripts using Selenium WebDriver from scratch, increasing test coverage by 85% and reducing manual testing time by 90% for a pharmaceutical website.'
+        'Engineered “Ping Down” sync modules, improving data accuracy by 99%.',
+        'Conducted sprint planning, code reviews, and Agile ceremonies',
+        'Designed Spring Boot training for junior developers',
+        'Resolved critical production bugs using RCA methods',
+        'Developed Selenium WebDriver tests, boosting test coverage by 85%'
       ],
     },
-    {
-      company: 'Accenture',
-      title: 'Associate Software Engineer',
-      duration: 'Aug 2019 - May 2021',
-      responsibilities: [
-        'Executed strategic root cause analysis in financial systems, implementing targeted technical solutions to resolve complex operational challenges and optimize system performance.',
-        'Leveraged Splunk for IT operations monitoring, real time analytics and performance dashboard.',
-        'Used Globalscape EFT for automated file transfer Event Rules.' 
-      ],
-    },
+    ,
   ];
   
   const projects = [
@@ -141,6 +132,18 @@ import {
           ],
           techStack: 'Hugging Face, Pytorch, MongoDB, Docker, ETL',
           github: 'https://github.com/komal-b/RAG_Finetuning',
+        },
+        {
+          title: 'Weather Prediction',
+          image: weather,
+          description:[
+            'Interactive dark-themed map using React Leaflet',
+            'Click on any location or search by city name to get weather data',
+            'Hourly temperature prediction for the next 24 hours using a trained LSTM model',
+            'Live data pulled using OpenWeather API',
+          ],
+          techStack: 'React, MaterialUI, Python, FastAPI, Keras, Tensorflow, Pandas, NumPYy, LSTM',
+          github: 'https://github.com/komal-b/WeatherPrediction',
         }
       ],
     },

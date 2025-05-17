@@ -127,7 +127,7 @@ const Contact = () => {
 
           <motion.button
             type="submit"
-            className="w-full py-3 mt-4 bg-cyan-500 text-white font-semibold rounded-lg transition-all duration-300 hover:bg-cyan-600"
+            class="w-full py-3 mt-4 bg-cyan-500 text-white font-semibold rounded-lg transition-all duration-300 hover:bg-cyan-600"
             disabled={isSubmitting}
             whileHover={{ scale: 1.05 }}
           >

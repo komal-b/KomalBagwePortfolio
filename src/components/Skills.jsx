@@ -32,6 +32,8 @@ const Skills = () => {
         </motion.h2>
 
         
+    
+
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6"
           variants={containerVariants}
@@ -45,10 +47,24 @@ const Skills = () => {
               variants={itemVariants}
             >
               <h3 className="text-2xl font-semibold mb-4 text-cyan-400">{skill.category}</h3>
-              <p className="text-base text-gray-300 leading-relaxed">{skill.details}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+              
+              <div className="flex flex-wrap gap-2">
+                {skill.details.split(",").map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="px-4 py-1 bg-gray-700 text-white rounded-full text-sm font-medium hover:bg-cyan-500 transition"
+                  >
+                    {tech.trim()}
+                  </span>
+                ))}
+              </div>
+         </motion.div>
+  ))}
+</motion.div>
+
+
+
+
       </div>
     </section>
   );
