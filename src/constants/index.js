@@ -102,9 +102,9 @@ import {
           image: pharmacy,
           company: 'Accenture',
           description:[
-            'Synchronized patient records from EPR service, ensuring 99.9% data accuracy.',
-            'Facilitated insurance processing by providing EPS insurance details to Pharmacy Benefit Manager (PBM) service, reducing claim errors by 25%.',
-            'Engineered order pickup time calculation functionality, improving efficiency by 30%.'
+            'Synchronized patient records from EPR service, ensuring 99% data accuracy.',
+            'Facilitated insurance processing by providing EPS insurance details to Pharmacy Benefit Manager (PBM) service, reducing claim errors by 45%.',
+            'Optimized ActiveMQ queue performance, reducing load by 60% and increasing message processing efficiency by 40% through producer flow control tuning and memory usage optimization.'
           ],
           techStack: 'Spring Boot, Spring MVC, Oracle SQL Developer, Java, Hibernate, JMS'
 
