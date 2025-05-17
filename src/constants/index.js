@@ -4,7 +4,8 @@ import {
     rag,
     pharmacy,
     ngo,
-    weather
+    weather,
+    construction
   } from "../assets";
   
   export const navLinks = [
@@ -55,7 +56,7 @@ import {
     { category: "Databases", details: "Oracle SQL Developer, MySQL, MongoDB, AWS S3" },
     { category: "Machine Learning", details: "PyTorch, NumPy, Keras, TensorFlow, OpenCV" },
     { category: "Backend Frameworks", details: "Spring, Hibernate, JMS" },
-    { category: "DevOps", details: "Git, AWS, Docker" },
+    { category: "DevOps", details: "Git, AWS, Docker, Jenkins" },
     { category: "IDEs", details: "Eclipse, IntelliJ IDEA, VisualStudio Code" },
     { category: "Testing", details: "Selenium, Cucumber" },
     { category: "Big Data", details: "Apache Spark, Hadoop" },
@@ -130,7 +131,7 @@ import {
             'Combined retrieval-based and generation-based models to enable domain-specific response generation.',
             'Utilized Docker for containerization, improving deployment efficiency.'
           ],
-          techStack: 'Hugging Face, Pytorch, MongoDB, Docker, ETL',
+          techStack: 'Hugging Face, Pytorch, MongoDB, Docker, ETL, Transformers',
           github: 'https://github.com/komal-b/RAG_Finetuning',
         },
         {
@@ -144,6 +145,19 @@ import {
           ],
           techStack: 'React, MaterialUI, Python, FastAPI, Keras, Tensorflow, Pandas, NumPYy, LSTM',
           github: 'https://github.com/komal-b/WeatherPrediction',
+        },
+        {
+          title: 'AI-Powered Multi-Source Construction Insights',
+          image: construction,
+          description:[
+            'Developed an AI-driven chatbot integrating structured (RDF-based) and unstructured (PDF) construction data.',
+            'Implemented PDF parsing with PyPDFLoader and sentence embedding using SentenceTransformer (all-MiniLM-6-v2).',
+            'Applied cosine similarity for query matching, merging insights from both data sources.',
+            'Utilized OpenAI GPT-4 for contextual response generation.',
+            'Ensured accuracy and relevance by dynamically combining results into a unified context.'
+          ],
+          techStack: 'Python, NLP, RAG, OpenAI API',
+          github: 'https://github.com/mdabdulrazzaq/Contech-Hackathon',
         }
       ],
     },

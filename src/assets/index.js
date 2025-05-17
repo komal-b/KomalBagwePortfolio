@@ -10,6 +10,7 @@ import rag from "./rag.jpg";
 import pharmacy from "./pharmacy.jpg";
 import ngo from "./ngo.jpg";
 import weather from "./weather.png";
+import construction from "./construction.jpg";
 export {
   rag,
   mulogo,
@@ -21,5 +22,6 @@ export {
   close,
   pharmacy,
   weather,
-  ngo
+  ngo,
+  construction
 };
