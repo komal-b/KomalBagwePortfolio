@@ -2,10 +2,11 @@ import {
     nyulogo,
     mulogo,
     rag,
-    pharmacy,
+    security,
     ngo,
     weather,
-    construction
+    construction,
+    stock
   } from "../assets";
   
   export const navLinks = [
@@ -41,27 +42,40 @@ import {
     {
       logo: nyulogo,
       school: 'New York University',
-      degree: 'Master of Science in Computer Science'
+      degree: 'Master of Science in Computer Science',
+      course: [
+        'Algorithms', 
+        'Artificial Intelligence', 
+        'Computer Vision', 
+        'Machine Learning', 
+        'Big Data', 
+        'Deep Learning', 
+        'Database Systems'
+      ],
+      year: 'Sept 2024 - May 2026',
     },
     {
       logo: mulogo,
       school: 'University of Mumbai',
-      degree: 'Bachelor of Engineering in Computer Engineering'
+      degree: 'Bachelor of Engineering in Computer Engineering',
+      course: [
+        'Object Oriented Programming', 
+        'Software Engineering', 
+        'Distributed Systems', 
+        'Cloud Computing', 
+        'Networking', 
+        'Operating System'
+      ],
+      year: 'Aug 2016 - Jun 2019',
     },
   ];
   
   const skills = [
-    { category: "Programming Languages", details: "Python, Java, JavaScript" },
-    { category: "Web Technologies", details: "HTML, CSS, React, TailWind" },
-    { category: "Databases", details: "Oracle SQL Developer, MySQL, MongoDB, AWS S3" },
-    { category: "Machine Learning", details: "PyTorch, NumPy, Keras, TensorFlow, OpenCV" },
-    { category: "Backend Frameworks", details: "Spring, Hibernate, JMS" },
-    { category: "DevOps", details: "Git, AWS, Docker, Jenkins" },
-    { category: "IDEs", details: "Eclipse, IntelliJ IDEA, VisualStudio Code" },
-    { category: "Testing", details: "Selenium, Cucumber" },
-    { category: "Big Data", details: "Apache Spark, Hadoop" },
-    { category: "Architecture", details: "Microservices" },
-    { category: "Tools", details: "Postman, Jira, Confluence, Splunk, GlobalScape EFT" },
+    { category: "Languages", details: "Python, Java, C++, JavaScript, TypeScript, HTML/CSS, SQL, PHP, Bash (Shell Scripting)" },
+    { category: "Frameworks & Tools", details: "Spring Boot, ReactJS, FastAPI, Docker, Kubernetes, Kafka, Jenkins, Git, JIRA, Selenium, Postman, PowerMockito, Tailwind CSS" },
+    { category: "Cloud & Databases", details: "WS, Azure, GCP, PostgreSQL, MySQL, Oracle, MongoDB (NoSQL), Amazon S3, Hadoop, Hibernate"},
+    { category: "AI/ML & Data", details: "TensorFlow, PyTorch, NumPy, OpenCV, PySpark, Pandas, Scikit-learn" },
+    { category: "Other Skills", details: "Full-Stack Development, Backend Architecture, System Design, Microservices, REST APIs, Test Automation, Agile, Scrum, CI/CD, SDLC" },
   ];
   
   const experiences = [
@@ -70,12 +84,12 @@ import {
       title: 'Senior Software Engineer',
       duration: 'Dec 2021 - Aug 2024',
       responsibilities: [
-        'Boosted system performance by 60% through ActiveMQ queue tuning',
-        'Built custom Java Swing UI components for enhanced user interaction',
-        'Achieved 100% JUnit coverage using PowerMockito for robust testing',
-        'Reduced insurance claim errors by 45% by integrating EPS data with PBM',
-        'Led a team of 8 during Team Lead\'s absence, ensuring delivery continuity',
-        'Developed Spring Boot APIs to expose AI/ML services'
+        'Engineered two resilient ’Ping Down’ functionalities, synchronizing central and pharmacy apps, improving data consistency to 99%.',
+        'Tuned ActiveMQ queues using producer flow control and memory optimization, reducing load by 60% and enhancing throughput by 50%.',
+        'Refactored EPS insurance data flow to PBM systems, cutting claim rejections by 45%.',
+        'Developed and deployed scalable Spring Boot REST APIs, integrated into 30% of internal modules.',
+        'Led an 8-member team in the absence of lead, maintaining delivery timelines and operational stability.'
+       
       ],
     },
     {
@@ -83,11 +97,19 @@ import {
       title: 'Software Engineer',
       duration: 'Jun 2021 - Nov 2021',
       responsibilities: [
-        'Engineered “Ping Down” sync modules, improving data accuracy by 99%.',
-        'Conducted sprint planning, code reviews, and Agile ceremonies',
-        'Designed Spring Boot training for junior developers',
-        'Resolved critical production bugs using RCA methods',
-        'Developed Selenium WebDriver tests, boosting test coverage by 85%'
+        'Facilitated sprint planning and refinement sessions across 15+ Agile sprints, resulting in the product team achieving 95% of sprint goals and improving team velocity scores by 20%.',
+        'Achieved 100% unit test coverage using JUnit and PowerMockito, boosting test confidence.',
+        'Resolved 20+ high-priority defects, reducing critical bug rate by 35%.'
+      ],
+    },
+    {
+      company: 'Accenture',
+      title: 'Software Engineer',
+      duration: 'Aug 2019 - May 2021',
+      responsibilities: [
+        'Built automated Selenium test scripts, raising test coverage to 85% and cutting manual QA by 90%.',
+        'Troubleshot production issues via ServiceNow and Splunk, halving MTTR from 10 to 5 hours.'
+
       ],
     },
     ,
@@ -98,25 +120,33 @@ import {
       category: 'FullStack Projects',
       items: [
         {
-          title: 'Enterprise Pharmacy System ',
-          image: pharmacy,
-          company: 'Accenture',
+          title: 'TraceMyData',
+          image: security,
+          company: '',
           description:[
-            'Synchronized patient records from EPR service, ensuring 99% data accuracy.',
-            'Facilitated insurance processing by providing EPS insurance details to Pharmacy Benefit Manager (PBM) service, reducing claim errors by 45%.',
-            'Optimized ActiveMQ queue performance, reducing load by 60% and increasing message processing efficiency by 40% through producer flow control tuning and memory usage optimization.'
-          ],
-          techStack: 'Spring Boot, Spring MVC, Oracle SQL Developer, Java, Hibernate, JMS'
+            'Built 10+ Spring Boot REST APIs with 99% uptime, integrated with PostgreSQL and secured using JWT.',
+            'Implemented robust OAuth2-based authentication, enabling secure multi-provider login (Google), reducing unauthorized access attempts by over 70% and improving user onboarding speed by 40%.',
+            'Automated CSV report generation for privacy audits, saving 60% manual effort.',
+            'Containerized and orchestrated microservices using Docker and Kubernetes, ensuring 100% environment parity, staging, and production. Reduced deployment time by 40% through scheduled CI/CD rollouts.',
+            'Designed an interactive privacy education module to inform users about personal data risks, enhancing user engagement.',
+            'Bridged software engineering and ML by leading both API/backend development (authentication, endpoints) and machine-learning privacy scoring, demonstrating versatile cross-functional expertise.',
+            'Architected an end-to-end privacy analysis platform by integrating a FastAPI backend, Playwright web crawler, and Python ML scoring model into a unified, containerized system.'
 
+          ],
+          techStack: 'ReactJS, TypeScript, Java, Spring Boot, PostgreSQL, Python, JWT, OAuth2, Docker, Kubernetes, Machine Learning',
+          github: 'https://github.com/komal-b/TraceMyData',
         },
         {
           title: 'WelcomeHome',
           image: ngo,
           description:[
             'Developed a web-based application for administrators to manage users, donations, and workflows.',
-            'Implemented secure user registration and login system, enhancing data protection'
+            'Implemented secure user registration and login system, enhancing data protection',
+            'Designed MySQL schema for donor management, ensuring 100% ACID compliance and referential integrity.',
+            'Achieved 98% query accuracy by implementing complex SQL joins for inventory search and role-based user task retrieval.'
           ],
-          techStack: 'SpringBoot, Java, MySQL Developer, Java, CSS, React, SpringSecurity',
+          techStack: 'SpringBoot, Java, MySQL Developer, CSS, ReactJS, SpringSecurity',
+           github: 'https://github.com/komal-b/WelcomeHome',
         },
       ],
     },
@@ -158,6 +188,17 @@ import {
           ],
           techStack: 'Python, NLP, RAG, OpenAI API',
           github: 'https://github.com/mdabdulrazzaq/Contech-Hackathon',
+        },
+        {
+          title: 'VibeTrader',
+          image: stock,
+          description:[
+            'Developed a hybrid deep learning system combining LSTM models in TensorFlow and PyTorch to forecast stock prices and sentiment-based trends using historical data and synthetic features.',
+            'Designed the full data-to-model pipeline, including sequence generation, training, model saving/loading, and predictions via  scalable modular code',
+            'Implemented a real-time streaming architecture with Kafka for live data ingestion and event-triggered trading alerts.',
+          ],
+          techStack: 'ReactJS, Kafka, SparkNLP, LSTM, TensorFlow, MLOps, Spark, AI Agents, Dask, MongoDB',
+          github: 'https://github.com/komal-b/VibeTrader',
         }
       ],
     },

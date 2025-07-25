@@ -7,10 +7,11 @@ import profile from "./profile.jpeg"
 import mulogo from "./mulogo.png";
 import nyulogo from "./nyulogo.png";
 import rag from "./rag.jpg";
-import pharmacy from "./pharmacy.jpg";
+import security from "./security.jpg";
 import ngo from "./ngo.jpg";
 import weather from "./weather.png";
 import construction from "./construction.jpg";
+import stock from "./stock.jpg";
 export {
   rag,
   mulogo,
@@ -20,8 +21,9 @@ export {
   github,
   menu,
   close,
-  pharmacy,
+  security,
   weather,
   ngo,
-  construction
+  construction,
+  stock
 };

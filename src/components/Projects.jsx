@@ -93,7 +93,7 @@ const Projects = () => {
       </div>
  {selectedProject && (
   <div className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-    <div className="bg-gray-800 bg-gradient-to-t from-black to-transparent shadow-2xl shadow-cyan-500/50 p-6 sm:p-8 rounded-lg w-full max-w-md  max-h-[calc(100vh-2rem)] overflow-auto">
+    <div className="bg-gray-800 bg-gradient-to-t w-xl h-96 from-black to-transparent shadow-2xl shadow-cyan-500/50 p-6 sm:p-8 rounded-lg w-full max-w-md  max-h-[calc(100vh-2rem)] overflow-auto">
       <h2 className="text-3xl font-bold mb-4 text-center text-white">{selectedProject.title}</h2>
       <p className="text-center text-l mb-4 text-white">{selectedProject.company}</p>
       
@@ -118,7 +118,7 @@ const Projects = () => {
         animate="visible"
         exit="hidden"
       >
-        <strong>Tech Stack: </strong>{selectedProject.techStack || 'N/A'}
+        <strong>Tech Stack: </strong><span className="italic text-sm font-serif">{selectedProject.techStack || 'N/A'}</span>
       </motion.p>
 
       {selectedProject.github && (
