@@ -14,7 +14,7 @@ const Hero = () => {
         {/* Left Content */}
         <div className="flex flex-col mt-12 gap-6 max-w-xl text-justify lg:text-left">
           {/* Intro Text */}
-          <p className={styles.heroHeadText}>Hi, I'm Komal</p>
+          <p className={styles.heroHeadText}>Hi,</p>
           <p className={`${styles.heroSubText} text-white-100`}>
             I'm Komal Bagwe, a software engineer and Master’s student at NYU with 4+ years of experience at Accenture. I specialize in full-stack development, scalable systems, and team leadership. From building robust Java applications to mentoring junior engineers, I blend technical skill with a people-first mindset. I'm passionate about clean code, collaboration, and continuous growth—driven to create impactful, user-focused software.
           </p>

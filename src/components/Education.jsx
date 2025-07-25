@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { education } from "../constants";
 
 const Education = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [expandedIndices, setExpandedIndices] = useState([]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -19,7 +19,9 @@ const Education = () => {
   };
 
   const toggleCourses = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
+    setExpandedIndices((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
   };
 
   return (
@@ -35,7 +37,7 @@ const Education = () => {
         </motion.h2>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center items-stretch"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center items-start"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -68,21 +70,32 @@ const Education = () => {
                   onClick={() => toggleCourses(index)}
                   className="text-sm text-cyan-400 hover:underline focus:outline-none"
                 >
-                  {expandedIndex === index
+                  {expandedIndices.includes(index)
                     ? "Hide Relevant Coursework"
                     : "Show Relevant Coursework"}
                 </button>
-                {expandedIndex === index && (
-                  <ul className="mt-3 list-disc list-inside text-sm text-gray-300 space-y-1">
-                    {edu.course && edu.course.length > 0 && (
-                      <ul className="list-disc list-inside text-left text-sm text-gray-300 mt-2">
-                        {edu.course.map((course, i) => (
-                          <li key={i}>{course}</li>
-                        ))}
+
+                <AnimatePresence>
+                  {expandedIndices.includes(index) && (
+                    <motion.div
+                      key="course-list"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ul className="mt-3 list-disc list-inside text-sm text-gray-300 space-y-1">
+                        {edu.course && edu.course.length > 0 && (
+                          <ul className="list-disc list-inside text-left text-sm text-gray-300 mt-2">
+                            {edu.course.map((course, i) => (
+                              <li key={i}>{course}</li>
+                            ))}
+                          </ul>
+                        )}
                       </ul>
-                    )}
-                  </ul>
-                )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </motion.div>
           ))}
