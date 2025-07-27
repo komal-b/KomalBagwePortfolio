@@ -75,7 +75,7 @@ const Hero = () => {
 
             {/* AI/ML Resume */}
             <a 
-              href="https://drive.google.com/file/d/1-MLyo1c3DKy8iOSswo47uIg6zpXwfWh3/view?usp=drive_link" 
+              href="https://drive.google.com/file/d/17wJbmHPLssNji1Cdei6kIaLP_5XroQwA/view?usp=sharing" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-56 h-12 px-4 py-2 bg-white text-gray-950 rounded-lg shadow hover:scale-105 hover:shadow-lg transition-transform duration-300"
