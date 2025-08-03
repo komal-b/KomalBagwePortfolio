@@ -84,10 +84,10 @@ import {
       title: 'Senior Software Engineer',
       duration: 'Dec 2021 - Aug 2024',
       responsibilities: [
-        'Engineered two resilient ’Ping Down’ functionalities, synchronizing central and pharmacy apps, improving data consistency to 99%.',
-        'Tuned ActiveMQ queues using producer flow control and memory optimization, reducing load by 60% and enhancing throughput by 50%.',
-        'Refactored EPS insurance data flow to PBM systems, cutting claim rejections by 45%.',
-        'Developed and deployed scalable Spring Boot REST APIs, integrated into 30% of internal modules.',
+        'Engineered two resilient ’Ping Down’ functionalities, synchronizing central and pharmacy apps, maintaining data consistency to 99%.',
+        'Tuned ActiveMQ queues using producer flow control and memory optimization, reducing load by 30% and enhancing throughput by 20%.',
+        'Refactored EPS insurance data flow to PBM systems, cutting claim rejections by 25%.',
+        'Developed and deployed scalable Spring Boot REST APIs, integrated into 20% of internal modules.',
         'Led an 8-member team in the absence of lead, maintaining delivery timelines and operational stability.'
        
       ],
