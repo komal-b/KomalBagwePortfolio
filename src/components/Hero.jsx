@@ -65,33 +65,15 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 mt-4">
             {/* SDE Resume */}
             <a 
-              href="https://drive.google.com/file/d/1rgyd_RCosVJyap_D-iTvftx1cWJCsApj/view?usp=drive_link" 
+              href="https://drive.google.com/file/d/1E_1RBZF2shaXBfanz7CKuiHUw-Xht20V/view?usp=sharing" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-56 h-12 px-4 py-2 bg-white text-gray-950 rounded-lg shadow hover:scale-105 hover:shadow-lg transition-transform duration-300"
             >
-              <span className="font-medium">View SDE Resume</span>
+              <span className="font-medium">View Resume</span>
             </a>
 
-            {/* AI/ML Resume */}
-            <a 
-              href="https://drive.google.com/file/d/1ktSYKafzT-aIMwd3HW1YxWJ3PdUjzpK_/view?usp=drive_link" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-56 h-12 px-4 py-2 bg-white text-gray-950 rounded-lg shadow hover:scale-105 hover:shadow-lg transition-transform duration-300"
-            >
-              <span className="font-medium">View AI/ML Resume</span>
-            </a>
-
-            {/* SDE + ML Resume */}
-            <a 
-              href="https://drive.google.com/file/d/18snAhAAkyueORyBxgRPQmjPYkgsL9DWK/view?usp=drive_link" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-56 h-12 px-4 py-2 bg-white text-gray-950 rounded-lg shadow hover:scale-105 hover:shadow-lg transition-transform duration-300"
-            >
-              <span className="font-medium">View SDE + ML Resume</span>
-            </a>
+            
           </div>
         </div>
 

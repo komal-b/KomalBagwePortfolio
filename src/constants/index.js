@@ -157,7 +157,7 @@ import {
           title: 'Finetuned RAG System',
           image: rag,
           description:[
-            'Built a Retrieval-Augmented Generation (RAG) system using Qdrant and a fine-tuned LLaMA 2 LLM to generate context-aware answers from custom document data, improving response relevance by 30\% based on manual evaluation.',
+            'Built a Retrieval-Augmented Generation (RAG) system using Qdrant and a fine-tuned LLM to generate context-aware answers from custom document data, improving response relevance by 30\% based on manual evaluation.',
             'Fine-tuned LLM on custom datasets to enhance contextual relevance; containerized using Docker for scalable, reproducible deployment.'
           ],
           techStack: 'Hugging Face, Pytorch, MongoDB, Docker, ETL, Transformers',
