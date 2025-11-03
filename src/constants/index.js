@@ -80,6 +80,18 @@ import {
   
   const experiences = [
     {
+      company: 'New York University',
+      title: 'Course Assistant for Agile Software Development & DevOps',
+      duration: 'Sept 2025 - Present',
+      responsibilities: [
+        'Supported a class of 120 students by resolving queries related to JavaScript, React, Express.js, Docker, Agile Methodology, and Figma.',
+        'Designed a new System Design module, helping students understand scalable architecture and CI/CD workflows.',
+        'Managed a team of 3 graders and 2 tutors, ensuring timely assignment evaluation, grading accuracy, and consistent academic support.',
+        'Assessed and graded assignments, ensuring accuracy, consistency, and timely feedback.',
+        'Conducted weekly Scrum calls to track task progress, ensure grading deadlines were met, and maintain accountability among graders and tutors.'
+      ],
+    },
+    {
       company: 'Accenture',
       title: 'Senior Software Engineer',
       duration: 'Dec 2021 - Aug 2024',
