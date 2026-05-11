@@ -4,20 +4,6 @@ import { education } from "../constants";
 
 const Education = () => {
   const [expandedIndices, setExpandedIndices] = useState([]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  };
-
   const toggleCourses = (index) => {
     setExpandedIndices((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
@@ -25,81 +11,75 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="py-12 px-6 text-white">
+    <section id="education" className="py-20 px-6 text-white">
       <div className="max-w-6xl mx-auto w-full">
-        <motion.h2
-          className="text-4xl font-bold mb-12 text-center"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Education
-        </motion.h2>
+          <p className="text-gray-500 text-sm uppercase tracking-widest mb-3">Academic background</p>
+          <h2 className="display-font text-4xl font-black text-white">Education</h2>
+        </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center items-start"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {education.map((edu, index) => (
             <motion.div
               key={index}
-              className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-cyan-500/50 transform transition duration-300 flex flex-col justify-between"
-              variants={itemVariants}
+              className="bg-gray-900/60 border border-gray-800 hover:border-gray-700 p-6 rounded-2xl flex flex-col gap-4 hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -4 }}
             >
-              <div className="flex flex-col items-center mb-4">
-                <div className="flex items-center mb-4 space-x-4">
-                  <img
-                    src={edu.logo}
-                    alt={edu.school}
-                    className="w-14 h-14 object-contain"
-                  />
-                  <div className="flex flex-col">
-                    <p className="text-lg font-semibold">{edu.school}</p>
-                    <p className="text-sm text-gray-400">
-                      {edu.degree} <span className="mx-2">|</span> {edu.year}
-                    </p>
-                  </div>
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-2 flex-shrink-0">
+                  <img src={edu.logo} alt={edu.school} className="w-full h-full object-contain" />
+                </div>
+                <div>
+                  <h3 className="display-font text-base font-bold text-white">{edu.school}</h3>
+                  <p className="text-sm text-gray-400 mt-0.5">{edu.degree}</p>
+                  <span className="inline-block mt-1 text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full">
+                    {edu.year}
+                  </span>
                 </div>
               </div>
 
-              {/* Relevant Coursework */}
-              <div className="mt-4">
+              <div>
                 <button
                   onClick={() => toggleCourses(index)}
-                  className="text-sm text-cyan-400 hover:underline focus:outline-none"
+                  className="text-xs text-gray-500 hover:text-cyan-400 transition-colors uppercase tracking-widest flex items-center gap-2"
                 >
-                  {expandedIndices.includes(index)
-                    ? "Hide Relevant Coursework"
-                    : "Show Relevant Coursework"}
+                  <span className={`transition-transform duration-200 ${expandedIndices.includes(index) ? 'rotate-90' : ''}`}>▶</span>
+                  {expandedIndices.includes(index) ? 'Hide' : 'Show'} Coursework
                 </button>
 
                 <AnimatePresence>
                   {expandedIndices.includes(index) && (
                     <motion.div
-                      key="course-list"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
                     >
-                      <ul className="mt-3 list-disc list-inside text-sm text-gray-300 space-y-1">
-                        {edu.course && edu.course.length > 0 && (
-                          <ul className="list-disc list-inside text-left text-sm text-gray-300 mt-2">
-                            {edu.course.map((course, i) => (
-                              <li key={i}>{course}</li>
-                            ))}
-                          </ul>
-                        )}
-                      </ul>
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {edu.course.map((course, i) => (
+                          <span key={i} className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-xs">
+                            {course}
+                          </span>
+                        ))}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

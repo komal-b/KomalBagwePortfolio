@@ -5,12 +5,13 @@ import {
     security,
     ngo,
     weather,
-    construction,
-    stock
+    stock,
+    auction,
+    ratelimiter,
+    dining
   } from "../assets";
   
   export const navLinks = [
-    
     {
       id: "about",
       title: "About",
@@ -72,36 +73,35 @@ import {
   
   const skills = [
     { category: "Languages", details: "Python, Java, C++, JavaScript, TypeScript, HTML/CSS, SQL, PHP, Bash (Shell Scripting)" },
-    { category: "Frameworks & Tools", details: "Spring Boot, ReactJS, FastAPI, Docker, Kubernetes, Kafka, Jenkins, Git, JIRA, Selenium, Postman, PowerMockito, Tailwind CSS" },
-    { category: "Cloud & Databases", details: "WS, Azure, GCP, PostgreSQL, MySQL, Oracle, MongoDB (NoSQL), Amazon S3, Hadoop, Hibernate"},
+    { category: "Frameworks & Tools", details: "Spring Boot, ReactJS, FastAPI, Docker, Kubernetes, Kafka, Jenkins, Git, JIRA, Selenium, Postman, Tailwind CSS, Node.js, AngularJS, Maven, Gradle" },
+    { category: "Cloud & Databases", details: "AWS (SES · SQS · EC2 · Lambda · ECS · DynamoDB · RDS · S3), Azure, GCP (BigQuery · Kubernetes Engine), PostgreSQL, MySQL, Oracle, MongoDB, Hadoop, Hibernate" },
     { category: "AI/ML & Data", details: "TensorFlow, PyTorch, NumPy, OpenCV, PySpark, Pandas, Scikit-learn" },
-    { category: "Other Skills", details: "Full-Stack Development, Backend Architecture, System Design, Microservices, REST APIs, Test Automation, Agile, Scrum, CI/CD, SDLC" },
+    { category: "Other Skills", details: "Full-Stack Development, Backend Architecture, Distributed Systems, System Design, Microservices, REST APIs, CI/CD, Agile, Scrum, Test Automation, SDLC" },
   ];
   
   const experiences = [
     {
       company: 'New York University',
-      title: 'Course Assistant for Agile Software Development & DevOps',
+      title: 'Course Assistant — Agile Software Development & DevOps',
       duration: 'Sept 2025 - Present',
       responsibilities: [
-        'Supported a class of 120 students by resolving queries related to JavaScript, React, Express.js, Docker, Agile Methodology, and Figma.',
-        'Designed a new System Design module, helping students understand scalable architecture and CI/CD workflows.',
-        'Managed a team of 3 graders and 2 tutors, ensuring timely assignment evaluation, grading accuracy, and consistent academic support.',
-        'Assessed and graded assignments, ensuring accuracy, consistency, and timely feedback.',
-        'Conducted weekly Scrum calls to track task progress, ensure grading deadlines were met, and maintain accountability among graders and tutors.'
+        'Support 190+ students in MERN Stack development and DevOps (Docker, DigitalOcean, CI/CD); guide student teams through Agile/Scrum workflows, from design in Figma to sprint planning and user story management using GitHub Projects.',
+        'Manage a team of 3 graders and 2 tutors to ensure consistent and timely academic support.',
+        'Created a bash script to automate repository insights for grading — scans student repos to generate reports on PR stats, commit history, and individual contributor metrics.',
       ],
     },
     {
       company: 'Accenture',
-      title: 'Senior Software Engineer',
+      title: 'Software Engineer II',
       duration: 'Dec 2021 - Aug 2024',
       responsibilities: [
-        'Engineered two resilient ’Ping Down’ functionalities, synchronizing central and pharmacy apps, maintaining data consistency to 99%.',
+        "Engineered two resilient 'Ping Down' functionalities, synchronizing central and pharmacy apps, maintaining data consistency to 95%.",
         'Tuned ActiveMQ queues using producer flow control and memory optimization, reducing load by 30% and enhancing throughput by 20%.',
         'Refactored EPS insurance data flow to PBM systems, cutting claim rejections by 25%.',
         'Developed and deployed scalable Spring Boot REST APIs, integrated into 20% of internal modules.',
-        'Led an 8-member team in the absence of lead, maintaining delivery timelines and operational stability.'
-       
+        'Led an 8-member team in the absence of lead, maintaining delivery timelines and operational stability.',
+        'Orchestrated containerized microservices deployments using Docker and Kubernetes, ensuring high availability and zero-downtime releases.',
+        'Optimized complex PostgreSQL database queries, reducing query execution time by 40% for high-volume transaction modules.',
       ],
     },
     {
@@ -109,108 +109,134 @@ import {
       title: 'Software Engineer',
       duration: 'Jun 2021 - Nov 2021',
       responsibilities: [
-        'Facilitated sprint planning and refinement sessions across 15+ Agile sprints, resulting in the product team achieving 95% of sprint goals and improving team velocity scores by 20%.',
-        'Achieved 100% unit test coverage using JUnit and PowerMockito, boosting test confidence.',
-        'Resolved 20+ high-priority defects, reducing critical bug rate by 35%.'
+        'Achieved 100% unit test coverage using JUnit, boosting test confidence.',
+        'Implemented secure authentication modules using OAuth2 and JWT, enhancing application security compliance for external vendor APIs.',
       ],
     },
     {
       company: 'Accenture',
-      title: 'Software Engineer',
+      title: 'Associate Software Engineer',
       duration: 'Aug 2019 - May 2021',
       responsibilities: [
-        'Built automated Selenium test scripts, raising test coverage to 85% and cutting manual QA by 90%.',
-        'Troubleshot production issues via ServiceNow and Splunk, halving MTTR from 10 to 5 hours.'
-
+        'Migrated legacy manual testing to automated Selenium scripts, cutting manual QA time by 90% and increasing regression coverage.',
+        'Acted as Designated Responsible Individual (DRI) for high-volume transaction modules; utilized Splunk for real-time log analysis and monitoring, resolving 20+ critical production bottlenecks and maintaining 99.9% service availability.',
       ],
     },
-    ,
   ];
   
   const projects = [
     {
-      category: 'FullStack Projects',
+      category: 'Full Stack',
       items: [
         {
           title: 'TraceMyData',
           image: security,
-          company: '',
-          description:[
-            'Built 10+ Spring Boot REST APIs with 99% uptime, integrated with PostgreSQL and secured using JWT.',
-            'Implemented robust OAuth2-based authentication, enabling secure multi-provider login (Google), reducing unauthorized access attempts by over 70% and improving user onboarding speed by 40%.',
-            'Automated CSV report generation for privacy audits, saving 60% manual effort.',
-            'Containerized and orchestrated microservices using Docker and Kubernetes, ensuring 100% environment parity, staging, and production. Reduced deployment time by 40% through scheduled CI/CD rollouts.',
-            'Designed an interactive privacy education module to inform users about personal data risks, enhancing user engagement.',
-            'Bridged software engineering and ML by leading both API/backend development (authentication, endpoints) and machine-learning privacy scoring, demonstrating versatile cross-functional expertise.',
-            'Architected an end-to-end privacy analysis platform by integrating a FastAPI backend, Playwright web crawler, and Python ML scoring model into a unified, containerized system.'
-
+          description: [
+            'Privacy awareness platform that crawls websites, detects third-party trackers, and computes an ML-based privacy risk score.',
+            'Secured with JWT + Google OAuth2, reducing unauthorized access attempts by 70% and improving onboarding speed by 40%.',
+            'Containerized all services (frontend, backend, ML microservice, PostgreSQL) with Docker Compose; deployed to Kubernetes reducing deployment time by 40%.',
+            'Automated CSV privacy audit reports, saving 60% of manual effort.',
           ],
-          techStack: 'ReactJS, TypeScript, Java, Spring Boot, PostgreSQL, Python, JWT, OAuth2, Docker, Kubernetes, Machine Learning',
+          techStack: 'React, TypeScript, Java, Spring Boot, Python, FastAPI, PostgreSQL, JWT, OAuth2, Docker, Kubernetes',
           github: 'https://github.com/komal-b/TraceMyData',
         },
         {
           title: 'WelcomeHome',
           image: ngo,
-          description:[
-            'Developed a web-based application for administrators to manage users, donations, and workflows.',
-            'Implemented secure user registration and login system, enhancing data protection',
-            'Designed MySQL schema for donor management, ensuring 100% ACID compliance and referential integrity.',
-            'Achieved 98% query accuracy by implementing complex SQL joins for inventory search and role-based user task retrieval.'
+          description: [
+            'Web app for an NGO to manage donors, inventory, and role-based workflows for admins and volunteers.',
+            'Designed a normalized MySQL schema ensuring 100% ACID compliance and referential integrity.',
+            'Implemented complex SQL joins for inventory search and task retrieval, achieving 98% query accuracy.',
+            'Secured with Spring Security for role-based access control across admin and volunteer roles.',
           ],
-          techStack: 'SpringBoot, Java, MySQL Developer, CSS, ReactJS, SpringSecurity',
-           github: 'https://github.com/komal-b/WelcomeHome',
+          techStack: 'Java, Spring Boot, Spring Security, MySQL, ReactJS, CSS',
+          github: 'https://github.com/komal-b/WelcomeHome',
         },
       ],
     },
     {
-      category: 'AI/ML Projects',
+      category: 'AI / ML',
       items: [
         {
-          title: 'Finetuned RAG System',
+          title: 'RAG Assistant for ROS2 Robotics',
           image: rag,
-          description:[
-            'Built a Retrieval-Augmented Generation (RAG) system using Qdrant and a fine-tuned LLM to generate context-aware answers from custom document data, improving response relevance by 30\% based on manual evaluation.',
-            'Fine-tuned LLM on custom datasets to enhance contextual relevance; containerized using Docker for scalable, reproducible deployment.'
+          description: [
+            'Domain-specific RAG chatbot helping robotics engineers with ROS2, Navigation2, and Gazebo simulation queries.',
+            'Automated ETL pipeline scrapes ROS2 docs and YouTube transcripts; BERT embeddings + Qdrant vector search retrieve the most relevant context.',
+            'Fine-tuned GPT-2/Llama on robotics datasets to improve domain-specific answer quality by 30%.',
+            'Experiment tracking with ClearML; full system containerized with Docker Compose for reproducible deployment.',
           ],
-          techStack: 'Hugging Face, Pytorch, MongoDB, Docker, ETL, Transformers',
+          techStack: 'Python, PyTorch, Hugging Face Transformers, Qdrant, MongoDB, ClearML, Gradio, Docker',
           github: 'https://github.com/komal-b/RAG_Finetuning',
-        },
-        {
-          title: 'Weather Prediction',
-          image: weather,
-          description:[
-            'Interactive dark-themed map using React Leaflet',
-            'Click on any location or search by city name to get weather data',
-            'Hourly temperature prediction for the next 24 hours using a trained LSTM model',
-            'Live data pulled using OpenWeather API',
-          ],
-          techStack: 'React, MaterialUI, Python, FastAPI, Keras, Tensorflow, Pandas, NumPYy, LSTM',
-          github: 'https://github.com/komal-b/WeatherPrediction',
-        },
-        {
-          title: 'AI-Powered Multi-Source Construction Insights',
-          image: construction,
-          description:[
-            'Developed an AI-driven chatbot integrating structured (RDF-based) and unstructured (PDF) construction data.',
-            'Implemented PDF parsing with PyPDFLoader and sentence embedding using SentenceTransformer (all-MiniLM-6-v2).',
-            'Applied cosine similarity for query matching, merging insights from both data sources.',
-            'Utilized OpenAI GPT-4 for contextual response generation.',
-            'Ensured accuracy and relevance by dynamically combining results into a unified context.'
-          ],
-          techStack: 'Python, NLP, RAG, OpenAI API',
-          github: 'https://github.com/mdabdulrazzaq/Contech-Hackathon',
         },
         {
           title: 'VibeTrader',
           image: stock,
-          description:[
-            'Developed a hybrid deep learning system combining LSTM models in TensorFlow and PyTorch to forecast stock prices and sentiment-based trends using historical data and synthetic features.',
-            'Designed the full data-to-model pipeline, including sequence generation, training, model saving/loading, and predictions via  scalable modular code',
-            'Implemented a real-time streaming architecture with Kafka for live data ingestion and event-triggered trading alerts.',
+          description: [
+            'Hybrid AI trading engine fusing 60-hour LSTM price sequences with LLM-generated sentiment scores from financial news.',
+            'Integrated Google Gemini via LangChain for semantic "vibe scoring" of news, outperforming traditional VADER sentiment tools.',
+            'Event-driven scheduling with Apache Kafka: a Time Daemon triggers hourly inference and daily model retraining pipelines.',
+            'PySpark ETL processes 5+ years of historical stock data; Redis caches real-time inference signals for low-latency access.',
           ],
-          techStack: 'ReactJS, Kafka, SparkNLP, LSTM, TensorFlow, MLOps, Spark, AI Agents, Dask, MongoDB',
+          techStack: 'Python, TensorFlow, PyTorch, LangChain, Gemini API, Apache Kafka, PySpark, Redis, MongoDB, Selenium',
           github: 'https://github.com/komal-b/VibeTrader',
-        }
+        },
+      ],
+    },
+    {
+      category: 'Cloud',
+      items: [
+        {
+          title: 'Dining Concierge Chatbot',
+          image: dining,
+          description: [
+            'Fully serverless AWS chatbot recommending NYC restaurants by cuisine, location, time, and group size.',
+            'End-to-end pipeline: Amazon Lex (NLP) → Lambda → SQS → OpenSearch → SES, with EventBridge scheduling suggestion delivery every minute.',
+            'Indexed 1,000+ Yelp restaurants into DynamoDB and OpenSearch for fast, cuisine-filtered retrieval.',
+            'Implemented a Dead Letter Queue for failed email deliveries with automatic retry logic.',
+          ],
+          techStack: 'AWS (Lex, Lambda, API Gateway, DynamoDB, OpenSearch, SQS, SES, S3, EventBridge), Python',
+          github: 'https://github.com/komal-b/Dining-Conceirge',
+        },
+        {
+          title: 'Live Flash Auction Platform',
+          image: auction,
+          description: [
+            'Real-time auction platform with 4 independent microservices (auction management, bid processing, WebSocket, timer) deployed on AWS EKS.',
+            'WebSocket service powers live bidding, chat, and participant tracking; atomic bid validation with anti-snipe logic prevents race conditions.',
+            'AWS stack: RDS PostgreSQL (auctions), ElastiCache Redis (pub/sub), DynamoDB (bid history), SQS + Lambda (async notifications), Cognito (auth), ALB (routing).',
+          ],
+          techStack: 'Python, React, TypeScript, AWS EKS, RDS PostgreSQL, ElastiCache Redis, DynamoDB, SQS, Lambda, Cognito, Kubernetes',
+          github: 'https://github.com/komal-b/live-flash-auction',
+        },
+      ],
+    },
+    {
+      category: 'Distributed Systems',
+      items: [
+        {
+          title: 'Real-Time Crypto Alert System',
+          image: stock,
+          description: [
+            'Decoupled event-driven architecture: a worker microservice polls CoinGecko prices and publishes to Redis Pub/Sub, keeping the web server lightweight and independently fault-tolerant.',
+            'Targeted WebSocket alerts via Socket.io — only the specific user whose price target is hit receives a notification.',
+            'Redis Sorted Sets (ZSET) enable O(log N) alert lookups across thousands of concurrent users.',
+            'Live Chart.js dashboard renders real-time price charts without page refreshes.',
+          ],
+          techStack: 'Node.js, Express, Socket.io, Redis (Pub/Sub + ZSET), Chart.js, CoinGecko API',
+          github: 'https://github.com/komal-b/crypto-alert-system',
+        },
+        {
+          title: 'Distributed Rate Limiter',
+          image: ratelimiter,
+          description: [
+            '🚧 In Progress — High-performance rate-limiting service in Go implementing 4 core algorithms: Token Bucket, Leaky Bucket, Fixed Window, and Sliding Window.',
+            'Multi-stage Docker build produces a minimal ~15MB image; runs as a non-privileged user to reduce container escape risk.',
+            'Redis-backed for distributed consistency — rate limit state is shared across multiple service replicas.',
+          ],
+          techStack: 'Go, Redis, Docker, Docker Compose',
+          github: 'https://github.com/komal-b/go-rate-limiter',
+        },
       ],
     },
   ];

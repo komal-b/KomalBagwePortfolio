@@ -10,8 +10,11 @@ import rag from "./rag.jpg";
 import security from "./security.jpg";
 import ngo from "./ngo.jpg";
 import weather from "./weather.png";
-import construction from "./construction.jpg";
+
 import stock from "./stock.jpg";
+import dining from "./dining.jpg";
+import auction from "./auction.jpg";
+import ratelimiter from "./ratelimiter.jpg";
 export {
   rag,
   mulogo,
@@ -24,6 +27,8 @@ export {
   security,
   weather,
   ngo,
-  construction,
+  dining,
+  auction,
+  ratelimiter,
   stock
 };

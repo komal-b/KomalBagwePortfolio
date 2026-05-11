@@ -27,8 +27,8 @@ const Navbar = () => {
   return (
     <nav
       className={`
-        ${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 
-        ${scrolled ? 'bg-black shadow-lg shadow-cyan-800' : 'bg-black'}
+        ${styles.paddingX} w-full flex items-center py-4 fixed top-0 z-20 transition-all duration-300
+        ${scrolled ? 'bg-gray-950/90 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/20' : 'bg-transparent'}
       `}
     >
       <div className="w-full flex justify-between items-center max-w-6xl mx-auto">
@@ -41,13 +41,13 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt="logo" className="w-20 h-90 object-contain" />
-          <p className="text-white text-[20px] font-bold cursor-pointer">Komal Bagwe</p>
+          <p className="display-font text-white text-[20px] font-bold cursor-pointer tracking-tight">Komal Bagwe</p>
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((link) => (
             <li
               key={link.id}
-              className={`text-l hover:text-cyan-500 hover:font-bold`}
+              className={`text-sm text-gray-400 hover:text-white transition-colors duration-200 tracking-wide`}
               onClick={() => scrollToSection(link.id)}
             >
               <a href={`#${link.id}`}>{link.title}</a>

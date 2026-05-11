@@ -1,149 +1,196 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../constants';
 
+const categoryMeta = {
+  'Full Stack':           { icon: '⚡', color: 'text-cyan-400',   border: 'border-cyan-500/40',   bg: 'bg-cyan-500/10',   activeBg: 'bg-cyan-500/20',   dotBg: 'bg-cyan-400',   btnBg: 'bg-cyan-500'   },
+  'AI / ML':              { icon: '◈', color: 'text-emerald-400', border: 'border-emerald-500/40', bg: 'bg-emerald-500/10', activeBg: 'bg-emerald-500/20', dotBg: 'bg-emerald-400', btnBg: 'bg-emerald-500' },
+  'Cloud':                { icon: '☁', color: 'text-violet-400',  border: 'border-violet-500/40',  bg: 'bg-violet-500/10',  activeBg: 'bg-violet-500/20',  dotBg: 'bg-violet-400',  btnBg: 'bg-violet-500'  },
+  'Distributed Systems':  { icon: '⟳', color: 'text-orange-400',  border: 'border-orange-500/40',  bg: 'bg-orange-500/10',  activeBg: 'bg-orange-500/20',  dotBg: 'bg-orange-400',  btnBg: 'bg-orange-500'  },
+};
+
 const Projects = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
+  const [activeCategory, setActiveCategory] = useState(projects[0].category);
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const closeModal = () => {
-    setSelectedProject(null);
-  };
+  const activeProjects = projects.find(p => p.category === activeCategory)?.items || [];
+  const meta = categoryMeta[activeCategory] || Object.values(categoryMeta)[0];
 
   return (
-    <section
-      id="projects"
-      className="min-h-screen py-10 px-5 text-white flex flex-col justify-center items-center"
-    > 
-    <motion.h2 className="text-4xl font-bold mb-10 text-center">
-      Projects
-    </motion.h2>
+    <section id="projects" className="min-h-screen py-20 px-5 text-white flex flex-col items-center">
       <div className="max-w-6xl mx-auto w-full">
-        
-          <>
-           
 
-            {projects.map((projectCategory) => (
-              <motion.div
-                key={projectCategory.category}
-                className="mb-12"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={containerVariants}
+        {/* Header */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="text-gray-500 text-sm uppercase tracking-widest mb-3">Things I've built</p>
+          <h2 className="display-font text-4xl font-black text-white">Projects</h2>
+        </motion.div>
+
+        {/* Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {projects.map((cat) => {
+            const m = categoryMeta[cat.category] || {};
+            const isActive = activeCategory === cat.category;
+            return (
+              <button
+                key={cat.category}
+                onClick={() => setActiveCategory(cat.category)}
+                className={`
+                  flex items-center gap-2 px-5 py-2.5 rounded-xl border text-sm font-medium
+                  transition-all duration-200 hover:-translate-y-0.5 transform
+                  ${isActive
+                    ? `${m.activeBg} ${m.border} ${m.color}`
+                    : 'bg-transparent border-gray-800 text-gray-500 hover:border-gray-600 hover:text-gray-300'
+                  }
+                `}
               >
-                <motion.h3
-                  className="text-2xl font-semibold mb-6"
-                  variants={itemVariants}
-                >
-                  {projectCategory.category}
-                </motion.h3>
+                <span className="text-base">{m.icon}</span>
+                <span className="display-font font-bold">{cat.category}</span>
+                <span className={`text-xs px-1.5 py-0.5 rounded-full ${isActive ? m.bg : 'bg-gray-800'}`}>
+                  {cat.items.length}
+                </span>
+              </button>
+            );
+          })}
+        </div>
 
-                <motion.div
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-10 justify-center items-center"
-                  variants={containerVariants}
-                >
-                  {projectCategory.items.map((project) => (
-                  <motion.div
-                  key={project.title}
-                  className="relative rounded-lg shadow-lg overflow-hidden transform transition-all"
-                  variants={itemVariants}
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0px 10px 30px rgba(0, 255, 255, 0.5)',
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
+        {/* Project Cards */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.35 }}
+          >
+            {activeProjects.map((project, i) => (
+              <motion.div
+                key={project.title}
+                className={`group relative rounded-2xl overflow-hidden border border-gray-800 hover:${meta.border} bg-gray-900/40 cursor-pointer transition-all duration-300`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: i * 0.08 }}
+                whileHover={{ y: -6, boxShadow: '0 20px 50px rgba(0,0,0,0.4)' }}
+                onClick={() => setSelectedProject(project)}
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                
-                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent p-4 flex flex-col justify-end bg-opacity-90">
-                    <h4 className="text-xl font-semibold text-white mb-2">
-                      {project.title}
-                    </h4>
-                    <a
-                      onClick={() => setSelectedProject(project)}
-                      className="text-cyan-400 hover:underline cursor-pointer"
-                    >
-                      View Project →
-                    </a>
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent" />
+                  {/* Category badge on image */}
+                  <div className={`absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${meta.bg} ${meta.color} border ${meta.border}`}>
+                    <span>{meta.icon}</span>
+                    {activeCategory}
                   </div>
-                </motion.div>
-                  ))}
-                </motion.div>
+                  {/* In Progress badge */}
+                  {project.description[0]?.startsWith('🚧') && (
+                    <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-medium bg-orange-500/20 text-orange-300 border border-orange-500/30">
+                      In Progress
+                    </div>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="p-5">
+                  <h4 className="display-font text-lg font-bold text-white mb-2 group-hover:text-opacity-90">
+                    {project.title}
+                  </h4>
+                  <p className="text-gray-500 text-xs font-mono mb-4 line-clamp-1">{project.techStack}</p>
+                  <div className="flex items-center justify-between">
+                    <button className={`text-sm font-medium ${meta.color} hover:opacity-80 transition-opacity`}>
+                      View Details →
+                    </button>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-gray-600 hover:text-gray-300 text-xs transition-colors"
+                      >
+                        GitHub ↗
+                      </a>
+                    )}
+                  </div>
+                </div>
               </motion.div>
             ))}
-          </>
-
+          </motion.div>
+        </AnimatePresence>
       </div>
- {selectedProject && (
-  <div className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-    <div className="bg-gray-800 bg-gradient-to-t w-xl h-96 from-black to-transparent shadow-2xl shadow-cyan-500/50 p-6 sm:p-8 rounded-lg w-full max-w-md  max-h-[calc(100vh-2rem)] overflow-auto">
-      <h2 className="text-3xl font-bold mb-4 text-center text-white">{selectedProject.title}</h2>
-      <p className="text-center text-l mb-4 text-white">{selectedProject.company}</p>
-      
-      <motion.p
-        className="max-w-4xl mb-6 text-white text-lg"
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-      >
-        <ul className="list-disc pl-6 text-white">
-          {selectedProject.description.map((description, i) => (
-            <motion.li key={i} className="text-sm">
-              {description}
-            </motion.li>
-          ))}
-        </ul>
-      </motion.p>
 
-      <motion.p
-        className="text-white text-l mb-6"
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-      >
-        <strong>Tech Stack: </strong><span className="italic text-sm font-serif">{selectedProject.techStack || 'N/A'}</span>
-      </motion.p>
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            className="fixed inset-0 bg-black/75 backdrop-blur-sm flex justify-center items-center z-50 px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-lg max-h-[85vh] overflow-auto shadow-2xl"
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal image */}
+              <div className="relative">
+                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-40 object-cover rounded-t-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent rounded-t-2xl" />
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-3 right-3 w-8 h-8 bg-gray-900/80 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-colors text-sm"
+                >✕</button>
+                <div className={`absolute bottom-3 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${meta.bg} ${meta.color} border ${meta.border}`}>
+                  <span>{meta.icon}</span> {activeCategory}
+                </div>
+              </div>
 
-      {selectedProject.github && (
-        <a
-          href={selectedProject.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-cyan-400 hover:underline"
-        >
-          View GitHub Repository →
-        </a>
-      )}
+              <div className="p-6">
+                <h2 className="display-font text-2xl font-black text-white mb-4">{selectedProject.title}</h2>
+                <ul className="space-y-2.5 mb-5">
+                  {selectedProject.description.map((desc, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-gray-400 leading-relaxed">
+                      <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${meta.dotBg}`} />
+                      {desc}
+                    </li>
+                  ))}
+                </ul>
 
-      <button
-        onClick={closeModal}
-        className="mt-6 text-white bg-cyan-500 hover:bg-cyan-600 px-6 py-2 rounded-lg w-full"
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
+                <div className={`${meta.bg} border ${meta.border} rounded-xl p-4 mb-5`}>
+                  <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Tech Stack</p>
+                  <p className={`${meta.color} text-sm font-mono`}>{selectedProject.techStack || 'N/A'}</p>
+                </div>
 
-
-
+                {selectedProject.github && (
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all duration-200 text-black ${meta.btnBg} hover:opacity-90`}
+                  >
+                    View on GitHub ↗
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
