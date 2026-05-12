@@ -145,8 +145,8 @@ import {
           image: ngo,
           description: [
             'Web app for an NGO to manage donors, inventory, and role-based workflows for admins and volunteers.',
-            'Designed a normalized MySQL schema ensuring 100% ACID compliance and referential integrity.',
-            'Implemented complex SQL joins for inventory search and task retrieval, achieving 98% query accuracy.',
+            'Designed a normalized MySQL schema ensuring ACID compliance and referential integrity.',
+            'Implemented complex SQL joins for inventory search and task retrieval.',
             'Secured with Spring Security for role-based access control across admin and volunteer roles.',
           ],
           techStack: 'Java, Spring Boot, Spring Security, MySQL, ReactJS, CSS',
