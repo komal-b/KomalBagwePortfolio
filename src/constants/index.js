@@ -133,9 +133,9 @@ import {
           image: security,
           description: [
             'Privacy awareness platform that crawls websites, detects third-party trackers, and computes an ML-based privacy risk score.',
-            'Secured with JWT + Google OAuth2, reducing unauthorized access attempts by 70% and improving onboarding speed by 40%.',
-            'Containerized all services (frontend, backend, ML microservice, PostgreSQL) with Docker Compose; deployed to Kubernetes reducing deployment time by 40%.',
-            'Automated CSV privacy audit reports, saving 60% of manual effort.',
+            'Secured with JWT authentication and Google OAuth2, with double opt-in email verification, password reset flows, and BCrypt password hashing.',
+            'Containerized all services (React frontend, Spring Boot backend, Python ML microservice, PostgreSQL) using Docker Compose.',
+            'Automated per-website CSV privacy audit reports covering tracker detections and risk scores.',
           ],
           techStack: 'React, TypeScript, Java, Spring Boot, Python, FastAPI, PostgreSQL, JWT, OAuth2, Docker, Kubernetes',
           github: 'https://github.com/komal-b/TraceMyData',
