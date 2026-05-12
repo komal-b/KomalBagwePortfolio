@@ -163,7 +163,7 @@ import {
           description: [
             'Domain-specific RAG chatbot helping robotics engineers with ROS2, Navigation2, and Gazebo simulation queries.',
             'Automated ETL pipeline scrapes ROS2 docs and YouTube transcripts; BERT embeddings + Qdrant vector search retrieve the most relevant context.',
-            'Fine-tuned GPT-2/Llama on robotics datasets to improve domain-specific answer quality by 30%.',
+            'Fine-tuned GPT-2 on robotics datasets to improve domain-specific answer quality by 30%.',
             'Experiment tracking with ClearML; full system containerized with Docker Compose for reproducible deployment.',
           ],
           techStack: 'Python, PyTorch, Hugging Face Transformers, Qdrant, MongoDB, ClearML, Gradio, Docker',
