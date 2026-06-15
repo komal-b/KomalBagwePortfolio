@@ -158,16 +158,16 @@ import {
       category: 'AI / ML',
       items: [
         {
-          title: 'RAG Assistant for ROS2 Robotics',
+          title: 'ROS2 RAG Assistant',
           image: rag,
           description: [
-            'Domain-specific RAG chatbot helping robotics engineers with ROS2, Navigation2, and Gazebo simulation queries.',
-            'Automated ETL pipeline scrapes ROS2 docs and YouTube transcripts; BERT embeddings + Qdrant vector search retrieve the most relevant context.',
-            'Fine-tuned GPT-2 on robotics datasets to improve domain-specific answer quality by 30%.',
-            'Experiment tracking with ClearML; full system containerized with Docker Compose for reproducible deployment.',
+            'Domain-specific RAG chatbot helping robotics engineers get answers about ROS2, Nav2, MoveIt2, and Gazebo — grounded in real documentation.',
+            'Automated ETL pipeline scrapes 27+ ROS2 documentation sources into MongoDB with upsert-based deduplication; all-mpnet-base-v2 sentence transformer embeddings with 512-token overlapping chunking stored in Qdrant vector database.',
+            'Integrated Llama3.1-8b via Groq API replacing local LLM after diagnosing RAM constraints — reduced response time from 31 minutes to under 3 seconds.',
+            'Evaluated with RAGAS framework on 8-question golden dataset achieving 0.94 context recall and 0.85 answer relevancy; experiment tracking with ClearML and containerized with Docker Compose.',
           ],
-          techStack: 'Python, PyTorch, Hugging Face Transformers, Qdrant, MongoDB, ClearML, Gradio, Docker',
-          github: 'https://github.com/komal-b/RAG_Finetuning',
+          techStack: 'Python, Sentence Transformers, Qdrant, MongoDB, Groq API, Llama3.1, ClearML, Gradio, Docker',
+          github: 'https://github.com/komal-b/rag-ros2',
         },
         {
           title: 'VibeTrader',
